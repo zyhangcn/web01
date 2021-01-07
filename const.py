@@ -1,0 +1,2 @@
+# 项目最多人数
+PROJECT_USER_MAX_NUM = 20
