@@ -14,7 +14,6 @@ from .serializer import (
 from permission.permission import MyPermission
 from customer.models import User, Customer
 from permission.myauth import MyAuth
-from common.utils import my_get_paginated_response as paginated_response
 from drf.filters import SearchFilter
 
 log = logging.getLogger(name='projectlog')
@@ -28,8 +27,6 @@ class ProjectList(generics.ListCreateAPIView):
     filter_backends = (SearchFilter,)
     search_fields = ['project_name']
 
-    my_get_paginated_response = paginated_response
-
     def list(self, request, *args, **kwargs):
         # print(request.auth)
         # 认证令牌 token的值
@@ -37,9 +34,6 @@ class ProjectList(generics.ListCreateAPIView):
         # 认证类
         queryset = self.filter_queryset(self.get_queryset())
 
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            return self.my_get_paginated_response(page)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 

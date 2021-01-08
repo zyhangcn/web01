@@ -9,7 +9,6 @@ from rest_framework.renderers import JSONRenderer
 from .models import Customer
 from .serializer import CustomerSerializer
 from .serializer import CustomerUpdateSerializer
-from common.utils import my_get_paginated_response as paginated_response
 from drf.filters import (RangeFilter, SearchFilter)
 
 logger = logging.getLogger("projectlog")
@@ -28,14 +27,14 @@ class CustomerList(generics.ListCreateAPIView):
         'project_name': 'project__project_name'
     }
     ordering_fields = ['age', 'username']
-    my_get_paginated_response = paginated_response
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
 
         page = self.paginate_queryset(queryset)
         if page is not None:
-            return self.my_get_paginated_response(page)
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
         serializer = self.get_serializer(queryset, many=True)
         logger.info("查询成功")
         return Response(serializer.data)
