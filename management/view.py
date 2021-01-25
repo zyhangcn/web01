@@ -3,13 +3,17 @@ import time
 import collections
 
 from django.http import JsonResponse
+from django.shortcuts import redirect
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework.views import APIView
+from django.views import View
+
+
 
 from customer.models import Token
 from customer.models import User
+from customer.models import Customer
 
 
 def get_token_code(username):
@@ -39,10 +43,8 @@ def login(request):
     user = User.objects.filter(username=username, password=hash_password, is_delete=False).first()
     if not user:
         return Response({"msg": "用户名或密码不对!"}, status=status.HTTP_200_OK)
-    # 删除原有的Token
     # old_token = Token.objects.filter(user_id=user.id)
     # old_token.delete()
-    # # 创建新的Token
     # token = get_token_code(username)
     # Token.objects.update_or_create(token=token, user=user)
     request.session['user_id'] = user.id
@@ -60,7 +62,8 @@ def login_out(requset):
     return JsonResponse({"message": "登出成功"})
 
 
-class Test(APIView):
 
-    def __get__(self, instance, owner):
-        print(instance)
+def skk(request,year=3333):
+
+    return redirect(Customer.objects.get(pk=1))
+    # return JsonResponse({"dasd":"asdas"})

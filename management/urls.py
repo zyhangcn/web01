@@ -14,10 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,register_converter
 from django.urls import include
 from . import view
 from project import views as ProView
+from . import  urlrounter
+register_converter(urlrounter.FourDigitYearConverter,'yyyy')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +28,6 @@ urlpatterns = [
     path("login/", view.login),
     path("register/", view.register),
     path("login_out/", view.login_out),
-
+    path("kksd/<yyyy:year>/",view.skk),
+    path("kks",view.skk)
 ]

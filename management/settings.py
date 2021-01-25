@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'middleware.middleware.LoginAuthToken'
+    # 'middleware.middleware.LoginAuthToken'
 ]
 
 ROOT_URLCONF = 'management.urls'
@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "management",
-        "USER": "root",
+        "USER": "joker",
         "PASSWORD": "123456",
         "HOST": "localhost",
         "PORT": '3306',

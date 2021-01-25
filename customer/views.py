@@ -29,6 +29,8 @@ class CustomerList(generics.ListCreateAPIView):
     ordering_fields = ['age', 'username']
 
     def list(self, request, *args, **kwargs):
+        print(request.query_params)
+        print(request.data)
         queryset = self.filter_queryset(self.get_queryset())
 
         page = self.paginate_queryset(queryset)
@@ -38,6 +40,8 @@ class CustomerList(generics.ListCreateAPIView):
         serializer = self.get_serializer(queryset, many=True)
         logger.info("查询成功")
         return Response(serializer.data)
+
+
 
     def perform_create(self, serializer):
         serializer.save()
