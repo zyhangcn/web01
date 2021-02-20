@@ -1,6 +1,6 @@
+import multiprocessing
 import os
 import sys
-import random
 import time
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -25,7 +25,7 @@ end2 = time.mktime(a3)
 
 def create_fake_user(num):
     for i in range(num):
-        username = ''.join([chr(random.randint(28000, 29000)) for i in range(3)])
+        username = ''.join([chr(random.randint(25000, 29000)) for i in range(3)])
         age = random.randint(0, 110)
         professional = random.choice(["海员", "经纪人", "建筑师", "建筑工人", "教练", "记者",
                                       "剧作家", "教育家", "教授", "经理"])
@@ -39,17 +39,18 @@ def create_fake_user(num):
         date_touple = time.localtime(t)  # 将时间戳生成时间元组
         start_time = time.strftime("%Y-%m-%d", date_touple)
 
-        user = Customer.objects.create(username=username, age=age, professional=professional
-                                   , province=province, city=city, join_time=start_time
-                                   )
+
         try:
+            user = Customer.objects.create(username=username, age=age, professional=professional
+                                           , province=province, city=city, join_time=start_time
+                                           )
             user.save()
         except Exception as e:
             print(e)
 
 
 def create_fake_project(num):
-    instroduce_list = [chr(random.randint(28000, 29000)) for i in range(1000)]
+    instroduce_list = [chr(random.randint(25000, 29000)) for i in range(1000)]
     for i in range(num):
         introduce = ''.join(random.choices(instroduce_list, k=40))
         project_name = ''.join([chr(random.randint(28000, 29000)) for i in range(2)]) + '管理'
@@ -65,8 +66,13 @@ def create_fake_project(num):
         project.save()
 
 
-if __name__ == '__main__':
-    create_fake_user(75)
-    create_fake_project(20)
+import time
+import random
+from multiprocessing import Process
 
-    print(Customer.objects.all().count())
+if __name__ == '__main__':
+    # create_fake_user(750000)
+    # create_fake_project(20)
+    for i in range(11):
+        t = Process(target=create_fake_user,args=(200000,))
+        t.start()
