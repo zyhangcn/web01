@@ -19,10 +19,5 @@ NACOS_SETTING = dict()
 for key in nacos_setting.keys():
     NACOS_SETTING[key]= nacos_setting[key]
 
-<<<<<<< HEAD
-
-
-=======
 print(NACOS_SETTING["RABBITMQ"])
 print(NACOS_SETTING)
->>>>>>> kk
