@@ -7,6 +7,8 @@ import nacos
 SERVER_ADDRESSES = 'nacos.hypers.cc:443'
 
 NAMESPACE = 'e631719f-38d9-40f7-8165-18bdbd255088'
+
+
 client = nacos.NacosClient(SERVER_ADDRESSES, namespace=NAMESPACE, username='admin', password='criusadmin',
                            protocol='https')
 data_id = 'haa_configss'
@@ -17,5 +19,10 @@ NACOS_SETTING = dict()
 for key in nacos_setting.keys():
     NACOS_SETTING[key]= nacos_setting[key]
 
+<<<<<<< HEAD
+
+
+=======
 print(NACOS_SETTING["RABBITMQ"])
 print(NACOS_SETTING)
+>>>>>>> kk
