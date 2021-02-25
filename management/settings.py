@@ -27,7 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
-
+SWAGGER_SETTINGS = {"DEFAULT_INFO": "management.urls.info"}
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'project',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +80,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "management",
-        "USER": "joker",
+        "USER": "zyh",
         "PASSWORD": "123456",
         "HOST": "localhost",
         "PORT": '3306',
