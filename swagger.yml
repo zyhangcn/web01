@@ -1,0 +1,526 @@
+swagger: '2.0'
+info:
+  title: WebTest
+  description: "WebTest\u63A5\u53E3\u6587\u6863"
+  version: 1.0.0
+basePath: /
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  Basic:
+    type: basic
+security:
+  - Basic: []
+paths:
+  /login_out/:
+    get:
+      operationId: login_out_list
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - login_out
+    parameters: []
+  /project/addCustomer/:
+    put:
+      operationId: project_addCustomer_update
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+      tags:
+        - project
+    parameters: []
+  /project/deleteCustomer/:
+    delete:
+      operationId: project_deleteCustomer_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - project
+    parameters: []
+  /project/project/{id}/user/{customer_id}/:
+    get:
+      operationId: project_project_user_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ProjectOperUser'
+      tags:
+        - project
+    put:
+      operationId: project_project_user_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ProjectOperUser'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ProjectOperUser'
+      tags:
+        - project
+    patch:
+      operationId: project_project_user_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ProjectOperUser'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ProjectOperUser'
+      tags:
+        - project
+    delete:
+      operationId: project_project_user_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - project
+    parameters:
+      - name: customer_id
+        in: path
+        required: true
+        type: string
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        type: integer
+  /project/projectlist/:
+    get:
+      operationId: project_projectlist_list
+      description: ''
+      parameters:
+        - name: page
+          in: query
+          description: A page number within the paginated result set.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/ProjectList'
+      tags:
+        - project
+    post:
+      operationId: project_projectlist_create
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ProjectList'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/ProjectList'
+      tags:
+        - project
+    parameters: []
+  /project/projectlist/{id}/:
+    get:
+      operationId: project_projectlist_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ProjectDetail'
+      tags:
+        - project
+    put:
+      operationId: project_projectlist_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ProjectDetail'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ProjectDetail'
+      tags:
+        - project
+    patch:
+      operationId: project_projectlist_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ProjectDetail'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/ProjectDetail'
+      tags:
+        - project
+    delete:
+      operationId: project_projectlist_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - project
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this project.
+        required: true
+        type: integer
+  /register/:
+    post:
+      operationId: register_create
+      description: ''
+      parameters: []
+      responses:
+        '201':
+          description: ''
+      tags:
+        - register
+    parameters: []
+  /user/userlist/:
+    get:
+      operationId: user_userlist_list
+      description: ''
+      parameters:
+        - name: ordering
+          in: query
+          description: Which field to use when ordering the results.
+          required: false
+          type: string
+        - name: page
+          in: query
+          description: A page number within the paginated result set.
+          required: false
+          type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            required:
+              - count
+              - results
+            type: object
+            properties:
+              count:
+                type: integer
+              next:
+                type: string
+                format: uri
+                x-nullable: true
+              previous:
+                type: string
+                format: uri
+                x-nullable: true
+              results:
+                type: array
+                items:
+                  $ref: '#/definitions/Customer'
+      tags:
+        - user
+    post:
+      operationId: user_userlist_create
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/Customer'
+      responses:
+        '201':
+          description: ''
+          schema:
+            $ref: '#/definitions/Customer'
+      tags:
+        - user
+    parameters: []
+  /user/userlist/{id}:
+    get:
+      operationId: user_userlist_read
+      description: ''
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CustomerUpdate'
+      tags:
+        - user
+    put:
+      operationId: user_userlist_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CustomerUpdate'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CustomerUpdate'
+      tags:
+        - user
+    patch:
+      operationId: user_userlist_partial_update
+      description: ''
+      parameters:
+        - name: data
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/CustomerUpdate'
+      responses:
+        '200':
+          description: ''
+          schema:
+            $ref: '#/definitions/CustomerUpdate'
+      tags:
+        - user
+    delete:
+      operationId: user_userlist_delete
+      description: ''
+      parameters: []
+      responses:
+        '204':
+          description: ''
+      tags:
+        - user
+    parameters:
+      - name: id
+        in: path
+        description: A unique integer value identifying this customer.
+        required: true
+        type: integer
+definitions:
+  ProjectOperUser:
+    required:
+      - project_name
+      - start_time
+      - end_time
+    type: object
+    properties:
+      project_name:
+        title: Project name
+        type: string
+        maxLength: 128
+        minLength: 1
+      start_time:
+        title: Start time
+        type: string
+        format: date
+      end_time:
+        title: End time
+        type: string
+        format: date
+      customer_num:
+        title: Customer num
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+  ProjectList:
+    required:
+      - project_name
+      - start_time
+      - end_time
+      - introduce
+    type: object
+    properties:
+      project_name:
+        title: Project name
+        type: string
+        maxLength: 128
+        minLength: 1
+      start_time:
+        title: Start time
+        type: string
+        format: date
+      end_time:
+        title: End time
+        type: string
+        format: date
+      customer_num:
+        title: Customer num
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      introduce:
+        title: Introduce
+        type: string
+        minLength: 1
+  User:
+    required:
+      - username
+      - age
+    type: object
+    properties:
+      username:
+        title: Username
+        type: string
+        maxLength: 64
+        minLength: 1
+      age:
+        title: Age
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+  ProjectDetail:
+    required:
+      - project_name
+      - introduce
+    type: object
+    properties:
+      project_name:
+        title: Project name
+        type: string
+        maxLength: 128
+        minLength: 1
+      introduce:
+        title: Introduce
+        type: string
+        minLength: 1
+      users_set:
+        type: array
+        items:
+          $ref: '#/definitions/User'
+        readOnly: true
+  Customer:
+    required:
+      - username
+      - age
+      - professional
+      - province
+      - city
+    type: object
+    properties:
+      username:
+        title: Username
+        type: string
+        maxLength: 64
+        minLength: 1
+      age:
+        title: Age
+        type: integer
+        maximum: 2147483647
+        minimum: -2147483648
+      professional:
+        title: Professional
+        type: string
+        maxLength: 64
+        minLength: 1
+      province:
+        title: Province
+        type: string
+        maxLength: 32
+        minLength: 1
+      city:
+        title: City
+        type: string
+        maxLength: 32
+        minLength: 1
+      join_time:
+        title: Join time
+        type: string
+        format: date
+        readOnly: true
+      update_time:
+        title: Update time
+        type: string
+        format: date
+        readOnly: true
+      project_name:
+        title: Project name
+        type: string
+        readOnly: true
+        minLength: 1
+  CustomerUpdate:
+    required:
+      - professional
+      - province
+      - city
+    type: object
+    properties:
+      username:
+        title: Username
+        type: string
+        readOnly: true
+      age:
+        title: Age
+        type: string
+        readOnly: true
+      professional:
+        title: Professional
+        type: string
+        maxLength: 64
+        minLength: 1
+      province:
+        title: Province
+        type: string
+        maxLength: 32
+        minLength: 1
+      city:
+        title: City
+        type: string
+        maxLength: 32
+        minLength: 1
+      project_name:
+        title: Project name
+        type: string
+        readOnly: true
+        minLength: 1
