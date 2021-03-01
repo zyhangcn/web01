@@ -29,8 +29,6 @@ class CustomerList(generics.ListCreateAPIView):
     ordering_fields = ['age', 'username']
 
     def list(self, request, *args, **kwargs):
-        print(request.query_params)
-        print(request.data)
         queryset = self.filter_queryset(self.get_queryset())
 
         page = self.paginate_queryset(queryset)
