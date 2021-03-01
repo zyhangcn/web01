@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'middleware.middleware.LoginAuthToken'
+    'middleware.middleware.LoginAuthToken'
 ]
 
 ROOT_URLCONF = 'management.urls'
@@ -151,7 +151,6 @@ LOGGING = {
         },
     },
     'handlers': {
-
         'file_handler': {  # 用于文件输出
             'level': 'INFO',
             'class': 'logging.handlers.TimedRotatingFileHandler',
