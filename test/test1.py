@@ -29,6 +29,5 @@ class Customertest(APITestCase):
             "province": "北京",
             "city": "北京"
         }
-        response = self.client.post('/user/userlist/', data, format="json")
         response = self.client.get("/user/userlist/")
         print(response.content)
