@@ -22,6 +22,21 @@ class CustomerSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("城市不在列表中")
         return value
 
+    def validate(self, attrs):
+        print(attrs)
+        print(type(attrs))
+        return attrs
+
+    def create(self, validated_data):
+        print(validated_data)
+        instance =Customer.objects.create(**validated_data)
+        return instance
+
+    def update(self, instance, validated_data):
+        print(instance)
+        print(validated_data)
+        return instance
+
     class Meta:
         model = Customer
         fields = ("username",

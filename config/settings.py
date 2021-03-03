@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import pathlib
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
@@ -134,6 +136,9 @@ LOGGING_DIR = 'logs'  # 日志存放路径
 if not os.path.exists(LOGGING_DIR):
     os.mkdir(LOGGING_DIR)
 
+_logs = pathlib.Path("logs")
+_logs.mkdir(exist_ok=True)
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -157,12 +162,23 @@ LOGGING = {
             'filename': '%s/project.log' % LOGGING_DIR,  # 日志文件的名称
             'formatter': 'standard'
         },
+        "access": {
+            "level": "DEBUG",
+            "class": "logging.handlers.RotatingFileHandler",
+            "filename": _logs.joinpath("access.log"),
+            "formatter": "standard",
+        },
     },
     'loggers': {  # 日志分配到哪个handlers中
         'projectlog': {
             'handlers': ['file_handler'],
             'level': 'INFO',
             'propagate': True,
+        },
+        "access": {
+            "handlers": ["access"],
+            "level": "DEBUG",
+            "propagate": True,
         },
     }
 }

@@ -1,8 +1,9 @@
 import logging
 
 from django.db.models import F
+from rest_framework.decorators import action
 from rest_framework.filters import OrderingFilter
-from rest_framework import generics, status
+from rest_framework import generics, status, mixins, viewsets
 from rest_framework.response import Response
 from rest_framework.renderers import JSONRenderer
 
@@ -14,7 +15,8 @@ from drf.filters import (RangeFilter, SearchFilter)
 logger = logging.getLogger("projectlog")
 
 
-class CustomerList(generics.ListCreateAPIView):
+class CustomerList(mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
+                   viewsets.GenericViewSet):
     renderer_classes = [JSONRenderer]
     queryset = Customer.objects.all().filter(is_delete=False)
     # permission_classes =
@@ -39,12 +41,13 @@ class CustomerList(generics.ListCreateAPIView):
         logger.info("查询成功")
         return Response(serializer.data)
 
-
-
     def perform_create(self, serializer):
         serializer.save()
         logger.info("用户创建成功")
 
+    @action(methods=['GET'],detail=False,url_path="simple")
+    def simple_list(self,request,pk=None):
+        return Response({"kkk":"asddas"})
 
 class CustomerDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Customer.objects.all().filter(is_delete=False)
