@@ -1,0 +1,183 @@
+ABSOLUTE_URL_OVERRIDES{}
+ADMINS[]
+ALLOWED_HOSTS['*']
+APPEND_SLASHTrue
+AUTHENTICATION_BACKENDS['django.contrib.auth.backends.ModelBackend']
+AUTH_PASSWORD_VALIDATORS[{'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'}, {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'}, {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'}, {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'}]
+AUTH_USER_MODELauth.User
+BASE_DIR/Users/zyh/work/hypers/web01
+CACHES{'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'}}
+CACHE_MIDDLEWARE_ALIASdefault
+CACHE_MIDDLEWARE_KEY_PREFIX
+CACHE_MIDDLEWARE_SECONDS600
+CSRF_COOKIE_AGE31449600
+CSRF_COOKIE_DOMAINNone
+CSRF_COOKIE_HTTPONLYFalse
+CSRF_COOKIE_NAMEcsrftoken
+CSRF_COOKIE_PATH/
+CSRF_COOKIE_SAMESITELax
+CSRF_COOKIE_SECUREFalse
+CSRF_FAILURE_VIEWdjango.views.csrf.csrf_failure
+CSRF_HEADER_NAMEHTTP_X_CSRFTOKEN
+CSRF_TRUSTED_ORIGINS[]
+CSRF_USE_SESSIONSFalse
+DATABASES{'default': {'ENGINE': 'django.db.backends.mysql', 'NAME': 'management', 'USER': 'zyh', 'PASSWORD': '123456', 'HOST': 'localhost', 'PORT': '3306', 'ATOMIC_REQUESTS': False, 'AUTOCOMMIT': True, 'CONN_MAX_AGE': 0, 'OPTIONS': {}, 'TIME_ZONE': None, 'TEST': {'CHARSET': None, 'COLLATION': None, 'MIGRATE': True, 'MIRROR': None, 'NAME': None}}}
+DATABASE_ROUTERS[]
+DATA_UPLOAD_MAX_MEMORY_SIZE2621440
+DATA_UPLOAD_MAX_NUMBER_FIELDS1000
+DATETIME_FORMATN j, Y, P
+DATETIME_INPUT_FORMATS['%Y-%m-%d %H:%M:%S', '%Y-%m-%d %H:%M:%S.%f', '%Y-%m-%d %H:%M', '%m/%d/%Y %H:%M:%S', '%m/%d/%Y %H:%M:%S.%f', '%m/%d/%Y %H:%M', '%m/%d/%y %H:%M:%S', '%m/%d/%y %H:%M:%S.%f', '%m/%d/%y %H:%M']
+DATE_FORMATN j, Y
+DATE_INPUT_FORMATS['%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y', '%b %d %Y', '%b %d, %Y', '%d %b %Y', '%d %b, %Y', '%B %d %Y', '%B %d, %Y', '%d %B %Y', '%d %B, %Y']
+DEBUGTrue
+DEBUG_PROPAGATE_EXCEPTIONSFalse
+DECIMAL_SEPARATOR.
+DEFAULT_CHARSETutf-8
+DEFAULT_EXCEPTION_REPORTERdjango.views.debug.ExceptionReporter
+DEFAULT_EXCEPTION_REPORTER_FILTERdjango.views.debug.SafeExceptionReporterFilter
+DEFAULT_FILE_STORAGEdjango.core.files.storage.FileSystemStorage
+DEFAULT_FROM_EMAILwebmaster@localhost
+DEFAULT_HASHING_ALGORITHMsha256
+DEFAULT_INDEX_TABLESPACE
+DEFAULT_TABLESPACE
+DISALLOWED_USER_AGENTS[]
+EMAIL_BACKENDdjango.core.mail.backends.smtp.EmailBackend
+EMAIL_HOSTlocalhost
+EMAIL_HOST_PASSWORD
+EMAIL_HOST_USER
+EMAIL_PORT25
+EMAIL_SSL_CERTFILENone
+EMAIL_SSL_KEYFILENone
+EMAIL_SUBJECT_PREFIX[Django] 
+EMAIL_TIMEOUTNone
+EMAIL_USE_LOCALTIMEFalse
+EMAIL_USE_SSLFalse
+EMAIL_USE_TLSFalse
+FILE_UPLOAD_DIRECTORY_PERMISSIONSNone
+FILE_UPLOAD_HANDLERS['django.core.files.uploadhandler.MemoryFileUploadHandler', 'django.core.files.uploadhandler.TemporaryFileUploadHandler']
+FILE_UPLOAD_MAX_MEMORY_SIZE2621440
+FILE_UPLOAD_PERMISSIONS420
+FILE_UPLOAD_TEMP_DIRNone
+FIRST_DAY_OF_WEEK0
+FIXTURE_DIRS[]
+FORCE_SCRIPT_NAMENone
+FORMAT_MODULE_PATHNone
+FORM_RENDERERdjango.forms.renderers.DjangoTemplates
+IGNORABLE_404_URLS[]
+INSTALLED_APPS['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'customer', 'rest_framework', 'rest_framework.authtoken', 'project', 'drf_yasg']
+INTERNAL_IPS[]
+LANGUAGES[('af', 'Afrikaans'), ('ar', 'Arabic'), ('ar-dz', 'Algerian Arabic'), ('ast', 'Asturian'), ('az', 'Azerbaijani'), ('bg', 'Bulgarian'), ('be', 'Belarusian'), ('bn', 'Bengali'), ('br', 'Breton'), ('bs', 'Bosnian'), ('ca', 'Catalan'), ('cs', 'Czech'), ('cy', 'Welsh'), ('da', 'Danish'), ('de', 'German'), ('dsb', 'Lower Sorbian'), ('el', 'Greek'), ('en', 'English'), ('en-au', 'Australian English'), ('en-gb', 'British English'), ('eo', 'Esperanto'), ('es', 'Spanish'), ('es-ar', 'Argentinian Spanish'), ('es-co', 'Colombian Spanish'), ('es-mx', 'Mexican Spanish'), ('es-ni', 'Nicaraguan Spanish'), ('es-ve', 'Venezuelan Spanish'), ('et', 'Estonian'), ('eu', 'Basque'), ('fa', 'Persian'), ('fi', 'Finnish'), ('fr', 'French'), ('fy', 'Frisian'), ('ga', 'Irish'), ('gd', 'Scottish Gaelic'), ('gl', 'Galician'), ('he', 'Hebrew'), ('hi', 'Hindi'), ('hr', 'Croatian'), ('hsb', 'Upper Sorbian'), ('hu', 'Hungarian'), ('hy', 'Armenian'), ('ia', 'Interlingua'), ('id', 'Indonesian'), ('ig', 'Igbo'), ('io', 'Ido'), ('is', 'Icelandic'), ('it', 'Italian'), ('ja', 'Japanese'), ('ka', 'Georgian'), ('kab', 'Kabyle'), ('kk', 'Kazakh'), ('km', 'Khmer'), ('kn', 'Kannada'), ('ko', 'Korean'), ('ky', 'Kyrgyz'), ('lb', 'Luxembourgish'), ('lt', 'Lithuanian'), ('lv', 'Latvian'), ('mk', 'Macedonian'), ('ml', 'Malayalam'), ('mn', 'Mongolian'), ('mr', 'Marathi'), ('my', 'Burmese'), ('nb', 'Norwegian Bokmål'), ('ne', 'Nepali'), ('nl', 'Dutch'), ('nn', 'Norwegian Nynorsk'), ('os', 'Ossetic'), ('pa', 'Punjabi'), ('pl', 'Polish'), ('pt', 'Portuguese'), ('pt-br', 'Brazilian Portuguese'), ('ro', 'Romanian'), ('ru', 'Russian'), ('sk', 'Slovak'), ('sl', 'Slovenian'), ('sq', 'Albanian'), ('sr', 'Serbian'), ('sr-latn', 'Serbian Latin'), ('sv', 'Swedish'), ('sw', 'Swahili'), ('ta', 'Tamil'), ('te', 'Telugu'), ('tg', 'Tajik'), ('th', 'Thai'), ('tk', 'Turkmen'), ('tr', 'Turkish'), ('tt', 'Tatar'), ('udm', 'Udmurt'), ('uk', 'Ukrainian'), ('ur', 'Urdu'), ('uz', 'Uzbek'), ('vi', 'Vietnamese'), ('zh-hans', 'Simplified Chinese'), ('zh-hant', 'Traditional Chinese')]
+LANGUAGES_BIDI['he', 'ar', 'ar-dz', 'fa', 'ur']
+LANGUAGE_CODEzh-hans
+LANGUAGE_COOKIE_AGENone
+LANGUAGE_COOKIE_DOMAINNone
+LANGUAGE_COOKIE_HTTPONLYFalse
+LANGUAGE_COOKIE_NAMEdjango_language
+LANGUAGE_COOKIE_PATH/
+LANGUAGE_COOKIE_SAMESITENone
+LANGUAGE_COOKIE_SECUREFalse
+LOCALE_PATHS[]
+LOGGING{'version': 1, 'disable_existing_loggers': False, 'formatters': {'standard': {'format': '[%(levelname)s][%(asctime)s][%(filename)s][%(funcName)s][%(lineno)d] > %(message)s'}, 'simple': {'format': '[%(levelname)s]> %(message)s'}}, 'filters': {'require_debug_true': {'()': 'django.utils.log.RequireDebugTrue'}}, 'handlers': {'file_handler': {'level': 'INFO', 'class': 'logging.handlers.TimedRotatingFileHandler', 'filename': 'logs/project.log', 'formatter': 'standard'}, 'access': {'level': 'DEBUG', 'class': 'logging.handlers.RotatingFileHandler', 'filename': PosixPath('logs/access.log'), 'formatter': 'standard'}}, 'loggers': {'projectlog': {'handlers': ['file_handler'], 'level': 'INFO', 'propagate': True}, 'access': {'handlers': ['access'], 'level': 'DEBUG', 'propagate': True}}}
+LOGGING_CONFIGlogging.config.dictConfig
+LOGGING_DIRlogs
+LOGIN_REDIRECT_URL/accounts/profile/
+LOGIN_URL/accounts/login/
+LOGOUT_REDIRECT_URLNone
+MANAGERS[]
+MEDIA_ROOT
+MEDIA_URL/
+MESSAGE_STORAGEdjango.contrib.messages.storage.fallback.FallbackStorage
+MIDDLEWARE['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.contrib.messages.middleware.MessageMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware', 'middleware.middleware.LoginAuthToken']
+MIGRATION_MODULES{}
+MONTH_DAY_FORMATF j
+NUMBER_GROUPING0
+PASSWORD_HASHERS['django.contrib.auth.hashers.PBKDF2PasswordHasher', 'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher', 'django.contrib.auth.hashers.Argon2PasswordHasher', 'django.contrib.auth.hashers.BCryptSHA256PasswordHasher']
+PASSWORD_RESET_TIMEOUT259200
+PASSWORD_RESET_TIMEOUT_DAYS3
+PREPEND_WWWFalse
+REST_FRAMEWORK{'DEFAULT_PAGINATION_CLASS': 'common.utils.MyPagination', 'PAGE_SIZE': 10, 'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.BasicAuthentication', 'rest_framework.authentication.SessionAuthentication', 'rest_framework.authentication.TokenAuthentication'), 'EXCEPTION_HANDLER': 'drf.exception.exception_handler'}
+ROOT_URLCONFmanagement.urls
+SECRET_KEY!__f0crw4m*)(hi^9(df*pyew!c&^fj+__)b)d5q*86cl-bvj4
+SECURE_BROWSER_XSS_FILTERFalse
+SECURE_CONTENT_TYPE_NOSNIFFTrue
+SECURE_HSTS_INCLUDE_SUBDOMAINSFalse
+SECURE_HSTS_PRELOADFalse
+SECURE_HSTS_SECONDS0
+SECURE_PROXY_SSL_HEADERNone
+SECURE_REDIRECT_EXEMPT[]
+SECURE_REFERRER_POLICYsame-origin
+SECURE_SSL_HOSTNone
+SECURE_SSL_REDIRECTFalse
+SERVER_EMAILroot@localhost
+SESSION_CACHE_ALIASdefault
+SESSION_COOKIE_AGE1209600
+SESSION_COOKIE_DOMAINNone
+SESSION_COOKIE_HTTPONLYTrue
+SESSION_COOKIE_NAMEsessionid
+SESSION_COOKIE_PATH/
+SESSION_COOKIE_SAMESITELax
+SESSION_COOKIE_SECUREFalse
+SESSION_ENGINEdjango.contrib.sessions.backends.db
+SESSION_EXPIRE_AT_BROWSER_CLOSEFalse
+SESSION_FILE_PATHNone
+SESSION_SAVE_EVERY_REQUESTFalse
+SESSION_SERIALIZERdjango.contrib.sessions.serializers.JSONSerializer
+SETTINGS_MODULEconfig.settings
+SHORT_DATETIME_FORMATm/d/Y P
+SHORT_DATE_FORMATm/d/Y
+SIGNING_BACKENDdjango.core.signing.TimestampSigner
+SILENCED_SYSTEM_CHECKS[]
+STATICFILES_DIRS[]
+STATICFILES_FINDERS['django.contrib.staticfiles.finders.FileSystemFinder', 'django.contrib.staticfiles.finders.AppDirectoriesFinder']
+STATICFILES_STORAGEdjango.contrib.staticfiles.storage.StaticFilesStorage
+STATIC_ROOTNone
+STATIC_URL/static/
+SWAGGER_SETTINGS{'DEFAULT_INFO': 'management.urls.info'}
+TEMPLATES[{'BACKEND': 'django.template.backends.django.DjangoTemplates', 'DIRS': ['/Users/zyh/work/hypers/web01/templates'], 'APP_DIRS': True, 'OPTIONS': {'context_processors': ['django.template.context_processors.debug', 'django.template.context_processors.request', 'django.contrib.auth.context_processors.auth', 'django.contrib.messages.context_processors.messages']}}]
+TEST_NON_SERIALIZED_APPS[]
+TEST_RUNNERdjango.test.runner.DiscoverRunner
+THOUSAND_SEPARATOR,
+TIME_FORMATP
+TIME_INPUT_FORMATS['%H:%M:%S', '%H:%M:%S.%f', '%H:%M']
+TIME_ZONEAsia/Shanghai
+USE_I18NTrue
+USE_L10NTrue
+USE_THOUSAND_SEPARATORFalse
+USE_TZFalse
+USE_X_FORWARDED_HOSTFalse
+USE_X_FORWARDED_PORTFalse
+WSGI_APPLICATIONmanagement.wsgi.application
+X_FRAME_OPTIONSDENY
+YEAR_MONTH_FORMATF Y
+__class__<class 'django.conf.Settings'>
+__delattr__<bound method LazySettings.__delattr__ of <LazySettings "config.settings">>
+__dict__{'_wrapped': <Settings "config.settings">, 'INSTALLED_APPS': ['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles', 'customer', 'rest_framework', 'rest_framework.authtoken', 'project', 'drf_yasg'], 'LOGGING_CONFIG': 'logging.config.dictConfig', 'LOGGING': {'version': 1, 'disable_existing_loggers': False, 'formatters': {'standard': {'format': '[%(levelname)s][%(asctime)s][%(filename)s][%(funcName)s][%(lineno)d] > %(message)s'}, 'simple': {'format': '[%(levelname)s]> %(message)s'}}, 'filters': {'require_debug_true': {'()': 'django.utils.log.RequireDebugTrue'}}, 'handlers': {'file_handler': {'level': 'INFO', 'class': 'logging.handlers.TimedRotatingFileHandler', 'filename': 'logs/project.log', 'formatter': 'standard'}, 'access': {'level': 'DEBUG', 'class': 'logging.handlers.RotatingFileHandler', 'filename': PosixPath('logs/access.log'), 'formatter': 'standard'}}, 'loggers': {'projectlog': {'handlers': ['file_handler'], 'level': 'INFO', 'propagate': True}, 'access': {'handlers': ['access'], 'level': 'DEBUG', 'propagate': True}}}, 'DEFAULT_EXCEPTION_REPORTER': 'django.views.debug.ExceptionReporter', 'FORCE_SCRIPT_NAME': None, 'DEFAULT_TABLESPACE': '', 'ABSOLUTE_URL_OVERRIDES': {}, 'AUTH_USER_MODEL': 'auth.User', 'DEBUG': True, 'DATABASES': {'default': {'ENGINE': 'django.db.backends.mysql', 'NAME': 'management', 'USER': 'zyh', 'PASSWORD': '123456', 'HOST': 'localhost', 'PORT': '3306', 'ATOMIC_REQUESTS': False, 'AUTOCOMMIT': True, 'CONN_MAX_AGE': 0, 'OPTIONS': {}, 'TIME_ZONE': None, 'TEST': {'CHARSET': None, 'COLLATION': None, 'MIGRATE': True, 'MIRROR': None, 'NAME': None}}}, 'USE_I18N': True, 'LANGUAGE_CODE': 'zh-hans', 'LOCALE_PATHS': [], 'DEFAULT_INDEX_TABLESPACE': '', 'SECRET_KEY': '!__f0crw4m*)(hi^9(df*pyew!c&^fj+__)b)d5q*86cl-bvj4', 'DEFAULT_HASHING_ALGORITHM': 'sha256', 'LANGUAGES_BIDI': ['he', 'ar', 'ar-dz', 'fa', 'ur'], 'LANGUAGES': [('af', 'Afrikaans'), ('ar', 'Arabic'), ('ar-dz', 'Algerian Arabic'), ('ast', 'Asturian'), ('az', 'Azerbaijani'), ('bg', 'Bulgarian'), ('be', 'Belarusian'), ('bn', 'Bengali'), ('br', 'Breton'), ('bs', 'Bosnian'), ('ca', 'Catalan'), ('cs', 'Czech'), ('cy', 'Welsh'), ('da', 'Danish'), ('de', 'German'), ('dsb', 'Lower Sorbian'), ('el', 'Greek'), ('en', 'English'), ('en-au', 'Australian English'), ('en-gb', 'British English'), ('eo', 'Esperanto'), ('es', 'Spanish'), ('es-ar', 'Argentinian Spanish'), ('es-co', 'Colombian Spanish'), ('es-mx', 'Mexican Spanish'), ('es-ni', 'Nicaraguan Spanish'), ('es-ve', 'Venezuelan Spanish'), ('et', 'Estonian'), ('eu', 'Basque'), ('fa', 'Persian'), ('fi', 'Finnish'), ('fr', 'French'), ('fy', 'Frisian'), ('ga', 'Irish'), ('gd', 'Scottish Gaelic'), ('gl', 'Galician'), ('he', 'Hebrew'), ('hi', 'Hindi'), ('hr', 'Croatian'), ('hsb', 'Upper Sorbian'), ('hu', 'Hungarian'), ('hy', 'Armenian'), ('ia', 'Interlingua'), ('id', 'Indonesian'), ('ig', 'Igbo'), ('io', 'Ido'), ('is', 'Icelandic'), ('it', 'Italian'), ('ja', 'Japanese'), ('ka', 'Georgian'), ('kab', 'Kabyle'), ('kk', 'Kazakh'), ('km', 'Khmer'), ('kn', 'Kannada'), ('ko', 'Korean'), ('ky', 'Kyrgyz'), ('lb', 'Luxembourgish'), ('lt', 'Lithuanian'), ('lv', 'Latvian'), ('mk', 'Macedonian'), ('ml', 'Malayalam'), ('mn', 'Mongolian'), ('mr', 'Marathi'), ('my', 'Burmese'), ('nb', 'Norwegian Bokmål'), ('ne', 'Nepali'), ('nl', 'Dutch'), ('nn', 'Norwegian Nynorsk'), ('os', 'Ossetic'), ('pa', 'Punjabi'), ('pl', 'Polish'), ('pt', 'Portuguese'), ('pt-br', 'Brazilian Portuguese'), ('ro', 'Romanian'), ('ru', 'Russian'), ('sk', 'Slovak'), ('sl', 'Slovenian'), ('sq', 'Albanian'), ('sr', 'Serbian'), ('sr-latn', 'Serbian Latin'), ('sv', 'Swedish'), ('sw', 'Swahili'), ('ta', 'Tamil'), ('te', 'Telugu'), ('tg', 'Tajik'), ('th', 'Thai'), ('tk', 'Turkmen'), ('tr', 'Turkish'), ('tt', 'Tatar'), ('udm', 'Udmurt'), ('uk', 'Ukrainian'), ('ur', 'Urdu'), ('uz', 'Uzbek'), ('vi', 'Vietnamese'), ('zh-hans', 'Simplified Chinese'), ('zh-hant', 'Traditional Chinese')], 'ROOT_URLCONF': 'management.urls', 'TEMPLATES': [{'BACKEND': 'django.template.backends.django.DjangoTemplates', 'DIRS': ['/Users/zyh/work/hypers/web01/templates'], 'APP_DIRS': True, 'OPTIONS': {'context_processors': ['django.template.context_processors.debug', 'django.template.context_processors.request', 'django.contrib.auth.context_processors.auth', 'django.contrib.messages.context_processors.messages']}}], 'REST_FRAMEWORK': {'DEFAULT_PAGINATION_CLASS': 'common.utils.MyPagination', 'PAGE_SIZE': 10, 'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework.authentication.BasicAuthentication', 'rest_framework.authentication.SessionAuthentication', 'rest_framework.authentication.TokenAuthentication'), 'EXCEPTION_HANDLER': 'drf.exception.exception_handler'}, 'MIDDLEWARE': ['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware', 'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware', 'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.contrib.messages.middleware.MessageMiddleware', 'django.middleware.clickjacking.XFrameOptionsMiddleware', 'middleware.middleware.LoginAuthToken'], 'LOGIN_URL': '/accounts/login/', 'ADMINS': [], 'ALLOWED_HOSTS': ['*'], 'APPEND_SLASH': True, 'AUTHENTICATION_BACKENDS': ['django.contrib.auth.backends.ModelBackend'], 'AUTH_PASSWORD_VALIDATORS': [{'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'}, {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'}, {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'}, {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'}], 'BASE_DIR': '/Users/zyh/work/hypers/web01', 'CACHES': {'default': {'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'}}, 'CACHE_MIDDLEWARE_ALIAS': 'default', 'CACHE_MIDDLEWARE_KEY_PREFIX': '', 'CACHE_MIDDLEWARE_SECONDS': 600, 'CSRF_COOKIE_AGE': 31449600, 'CSRF_COOKIE_DOMAIN': None, 'CSRF_COOKIE_HTTPONLY': False, 'CSRF_COOKIE_NAME': 'csrftoken', 'CSRF_COOKIE_PATH': '/', 'CSRF_COOKIE_SAMESITE': 'Lax', 'CSRF_COOKIE_SECURE': False, 'CSRF_FAILURE_VIEW': 'django.views.csrf.csrf_failure', 'CSRF_HEADER_NAME': 'HTTP_X_CSRFTOKEN', 'CSRF_TRUSTED_ORIGINS': [], 'CSRF_USE_SESSIONS': False, 'DATABASE_ROUTERS': [], 'DATA_UPLOAD_MAX_MEMORY_SIZE': 2621440, 'DATA_UPLOAD_MAX_NUMBER_FIELDS': 1000, 'DATETIME_FORMAT': 'N j, Y, P', 'DATETIME_INPUT_FORMATS': ['%Y-%m-%d %H:%M:%S', '%Y-%m-%d %H:%M:%S.%f', '%Y-%m-%d %H:%M', '%m/%d/%Y %H:%M:%S', '%m/%d/%Y %H:%M:%S.%f', '%m/%d/%Y %H:%M', '%m/%d/%y %H:%M:%S', '%m/%d/%y %H:%M:%S.%f', '%m/%d/%y %H:%M'], 'DATE_FORMAT': 'N j, Y', 'DATE_INPUT_FORMATS': ['%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y', '%b %d %Y', '%b %d, %Y', '%d %b %Y', '%d %b, %Y', '%B %d %Y', '%B %d, %Y', '%d %B %Y', '%d %B, %Y'], 'DEBUG_PROPAGATE_EXCEPTIONS': False, 'DECIMAL_SEPARATOR': '.', 'DEFAULT_CHARSET': 'utf-8', 'DEFAULT_EXCEPTION_REPORTER_FILTER': 'django.views.debug.SafeExceptionReporterFilter', 'DEFAULT_FILE_STORAGE': 'django.core.files.storage.FileSystemStorage', 'DEFAULT_FROM_EMAIL': 'webmaster@localhost', 'DISALLOWED_USER_AGENTS': [], 'EMAIL_BACKEND': 'django.core.mail.backends.smtp.EmailBackend', 'EMAIL_HOST': 'localhost', 'EMAIL_HOST_PASSWORD': '', 'EMAIL_HOST_USER': '', 'EMAIL_PORT': 25, 'EMAIL_SSL_CERTFILE': None, 'EMAIL_SSL_KEYFILE': None, 'EMAIL_SUBJECT_PREFIX': '[Django] ', 'EMAIL_TIMEOUT': None, 'EMAIL_USE_LOCALTIME': False, 'EMAIL_USE_SSL': False, 'EMAIL_USE_TLS': False, 'FILE_UPLOAD_DIRECTORY_PERMISSIONS': None, 'FILE_UPLOAD_HANDLERS': ['django.core.files.uploadhandler.MemoryFileUploadHandler', 'django.core.files.uploadhandler.TemporaryFileUploadHandler'], 'FILE_UPLOAD_MAX_MEMORY_SIZE': 2621440, 'FILE_UPLOAD_PERMISSIONS': 420, 'FILE_UPLOAD_TEMP_DIR': None, 'FIRST_DAY_OF_WEEK': 0, 'FIXTURE_DIRS': [], 'FORMAT_MODULE_PATH': None, 'FORM_RENDERER': 'django.forms.renderers.DjangoTemplates', 'IGNORABLE_404_URLS': [], 'INTERNAL_IPS': [], 'LANGUAGE_COOKIE_AGE': None, 'LANGUAGE_COOKIE_DOMAIN': None, 'LANGUAGE_COOKIE_HTTPONLY': False, 'LANGUAGE_COOKIE_NAME': 'django_language', 'LANGUAGE_COOKIE_PATH': '/', 'LANGUAGE_COOKIE_SAMESITE': None, 'LANGUAGE_COOKIE_SECURE': False, 'LOGGING_DIR': 'logs', 'LOGIN_REDIRECT_URL': '/accounts/profile/', 'LOGOUT_REDIRECT_URL': None, 'MANAGERS': [], 'MEDIA_ROOT': '', 'MEDIA_URL': '', 'MESSAGE_STORAGE': 'django.contrib.messages.storage.fallback.FallbackStorage', 'MIGRATION_MODULES': {}, 'MONTH_DAY_FORMAT': 'F j', 'NUMBER_GROUPING': 0, 'PASSWORD_HASHERS': ['django.contrib.auth.hashers.PBKDF2PasswordHasher', 'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher', 'django.contrib.auth.hashers.Argon2PasswordHasher', 'django.contrib.auth.hashers.BCryptSHA256PasswordHasher'], 'PASSWORD_RESET_TIMEOUT': 259200, 'PASSWORD_RESET_TIMEOUT_DAYS': 3, 'PREPEND_WWW': False, 'SECURE_BROWSER_XSS_FILTER': False, 'SECURE_CONTENT_TYPE_NOSNIFF': True, 'SECURE_HSTS_INCLUDE_SUBDOMAINS': False, 'SECURE_HSTS_PRELOAD': False, 'SECURE_HSTS_SECONDS': 0, 'SECURE_PROXY_SSL_HEADER': None, 'SECURE_REDIRECT_EXEMPT': [], 'SECURE_REFERRER_POLICY': 'same-origin', 'SECURE_SSL_HOST': None, 'SECURE_SSL_REDIRECT': False, 'SERVER_EMAIL': 'root@localhost', 'SESSION_CACHE_ALIAS': 'default', 'SESSION_COOKIE_AGE': 1209600, 'SESSION_COOKIE_DOMAIN': None, 'SESSION_COOKIE_HTTPONLY': True, 'SESSION_COOKIE_NAME': 'sessionid', 'SESSION_COOKIE_PATH': '/', 'SESSION_COOKIE_SAMESITE': 'Lax', 'SESSION_COOKIE_SECURE': False, 'SESSION_ENGINE': 'django.contrib.sessions.backends.db', 'SESSION_EXPIRE_AT_BROWSER_CLOSE': False, 'SESSION_FILE_PATH': None, 'SESSION_SAVE_EVERY_REQUEST': False, 'SESSION_SERIALIZER': 'django.contrib.sessions.serializers.JSONSerializer', 'SETTINGS_MODULE': 'config.settings', 'SHORT_DATETIME_FORMAT': 'm/d/Y P', 'SHORT_DATE_FORMAT': 'm/d/Y', 'SIGNING_BACKEND': 'django.core.signing.TimestampSigner', 'SILENCED_SYSTEM_CHECKS': [], 'STATICFILES_DIRS': [], 'STATICFILES_FINDERS': ['django.contrib.staticfiles.finders.FileSystemFinder', 'django.contrib.staticfiles.finders.AppDirectoriesFinder'], 'STATICFILES_STORAGE': 'django.contrib.staticfiles.storage.StaticFilesStorage', 'STATIC_ROOT': None, 'STATIC_URL': '/static/', 'SWAGGER_SETTINGS': {'DEFAULT_INFO': 'management.urls.info'}, 'TEST_NON_SERIALIZED_APPS': [], 'TEST_RUNNER': 'django.test.runner.DiscoverRunner', 'THOUSAND_SEPARATOR': ',', 'TIME_FORMAT': 'P', 'TIME_INPUT_FORMATS': ['%H:%M:%S', '%H:%M:%S.%f', '%H:%M'], 'TIME_ZONE': 'Asia/Shanghai', 'USE_L10N': True, 'USE_THOUSAND_SEPARATOR': False, 'USE_TZ': False, 'USE_X_FORWARDED_HOST': False, 'USE_X_FORWARDED_PORT': False, 'WSGI_APPLICATION': 'management.wsgi.application', 'X_FRAME_OPTIONS': 'DENY', 'YEAR_MONTH_FORMAT': 'F Y'}
+__dir__<bound method new_method_proxy.<locals>.inner of <LazySettings "config.settings">>
+__doc__
+    A lazy proxy for either global Django settings or a custom settings object.
+    The user can manually configure settings prior to using them. Otherwise,
+    Django uses the settings module pointed to by DJANGO_SETTINGS_MODULE.
+    
+__eq__<bound method new_method_proxy.<locals>.inner of <LazySettings "config.settings">>
+__format__<built-in method __format__ of LazySettings object at 0x10372e970>
+__ge__<method-wrapper '__ge__' of LazySettings object at 0x10372e970>
+__getattribute__<method-wrapper '__getattribute__' of LazySettings object at 0x10372e970>
+__gt__<bound method new_method_proxy.<locals>.inner of <LazySettings "config.settings">>
+__hash__<bound method new_method_proxy.<locals>.inner of <LazySettings "config.settings">>
+__init__<bound method LazyObject.__init__ of <LazySettings "config.settings">>
+__init_subclass__<built-in method __init_subclass__ of type object at 0x14e168160>
+__le__<method-wrapper '__le__' of LazySettings object at 0x10372e970>
+__lt__<bound method new_method_proxy.<locals>.inner of <LazySettings "config.settings">>
+__module__django.conf
+__ne__<bound method new_method_proxy.<locals>.inner of <LazySettings "config.settings">>
+__new__<built-in method __new__ of type object at 0x102f8a610>
+__reduce__<bound method LazyObject.__reduce__ of <LazySettings "config.settings">>
+__reduce_ex__<built-in method __reduce_ex__ of LazySettings object at 0x10372e970>
+__repr__<bound method LazySettings.__repr__ of <LazySettings "config.settings">>
+__setattr__<bound method LazySettings.__setattr__ of <LazySettings "config.settings">>
+__sizeof__<built-in method __sizeof__ of LazySettings object at 0x10372e970>
+__str__<bound method new_method_proxy.<locals>.inner of <LazySettings "config.settings">>
+__subclasshook__<built-in method __subclasshook__ of type object at 0x14e168160>
+__weakref__None
+_explicit_settings{'USE_TZ', 'USE_I18N', 'LOGGING', 'WSGI_APPLICATION', 'BASE_DIR', 'DATABASES', 'DEBUG', 'TEMPLATES', 'SECRET_KEY', 'LANGUAGE_CODE', 'ROOT_URLCONF', 'USE_L10N', 'REST_FRAMEWORK', 'AUTH_PASSWORD_VALIDATORS', 'TIME_ZONE', 'STATIC_URL', 'SWAGGER_SETTINGS', 'LOGGING_DIR', 'INSTALLED_APPS', 'MIDDLEWARE', 'ALLOWED_HOSTS'}
+is_overridden<bound method Settings.is_overridden of <Settings "config.settings">>

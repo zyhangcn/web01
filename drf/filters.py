@@ -53,7 +53,6 @@ class SearchFilter(BaseFilterBackend):
 
         search_fields = getattr(view, 'search_fields', [])
         fields_map = getattr(view, 'fields_map', {})
-
         if search_value:
             if filter_column and (filter_column in search_fields):
                 # 查询特定的字段

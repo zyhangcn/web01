@@ -9,7 +9,7 @@ if CURRENT_DIR not in sys.path:
     sys.path.insert(0, CURRENT_DIR)
 import django
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'management.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 django.setup()
 
 from customer.models import Customer
@@ -74,5 +74,5 @@ if __name__ == '__main__':
     # create_fake_user(750000)
     # create_fake_project(20)
     for i in range(11):
-        t = Process(target=create_fake_user,args=(200000,))
+        t = Process(target=create_fake_project,args=(20,))
         t.start()

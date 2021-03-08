@@ -2,7 +2,12 @@ import logging
 
 from django.db.models import F
 from rest_framework import generics
-from rest_framework.decorators import api_view, authentication_classes, permission_classes
+from rest_framework.decorators import (
+    api_view,
+    authentication_classes,
+    permission_classes
+)
+from rest_framework.permissions import BasePermission, IsAuthenticated, SAFE_METHODS
 from rest_framework.response import Response
 from rest_framework import status
 
@@ -20,11 +25,12 @@ log = logging.getLogger(name='projectlog')
 
 
 class ProjectList(generics.ListCreateAPIView):
-    queryset = Project.objects.all().filter(is_delete=False)
+    queryset = Project.objects.all().filter(is_delete=False).order_by('id')
     serializer_class = ProjectListSerializer
     authentication_classes = (MyAuth,)
     permission_classes = (MyPermission,)
     filter_backends = (SearchFilter,)
+
     search_fields = ['project_name']
 
     def list(self, request, *args, **kwargs):
@@ -34,17 +40,28 @@ class ProjectList(generics.ListCreateAPIView):
         # 认证类
         queryset = self.filter_queryset(self.get_queryset())
 
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+    def perform_create(self, serializer):
+        request = self.get_serializer_context()['request']
         serializer.validated_data.update({"user": request.session['user_id']})
-        self.perform_create(serializer)
-        log.info("项目创建成功")
-        headers = self.get_success_headers(serializer.data)
-        return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
+        serializer.save()
+
+    # todo: old 给新建对象添加一个默认值，使用上下文方法获取requset对象。
+
+    # def create(self, request, *args, **kwargs):
+    #     serializer = self.get_serializer(data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     serializer.validated_data.update({"user": request.session['user_id']})
+    #     self.perform_create(serializer)
+    #     log.info("项目创建成功")
+    #     headers = self.get_success_headers(serializer.data)
+    #     return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 
 class ProjectDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -164,3 +181,23 @@ class ProjectRelationUser(generics.RetrieveUpdateDestroyAPIView):
         user.save()
         log.info("项目删除用户成功")
         return Response({"message": "用户删除成功"}, status=status.HTTP_202_ACCEPTED)
+
+
+from rest_framework.viewsets import GenericViewSet
+
+from rest_framework import mixins
+
+
+class Project_listsa(
+
+    mixins.ListModelMixin,
+    mixins.CreateModelMixin,
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    GenericViewSet):
+    queryset = Project.objects.all()
+
+    def get_serializer_class(self):
+        print(self.action)
+        return ProjectListSerializer

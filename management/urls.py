@@ -22,6 +22,7 @@ from drf_yasg.views import get_schema_view
 from . import view
 from project import views as ProView
 from . import urlrounter
+from te.views import Alist
 
 info = openapi.Info(
     title="WebTest",
@@ -33,6 +34,9 @@ schema_view = get_schema_view(
     info,
     public=True,
 )
+
+from rest_framework.schemas import get_schema_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('customer.urls')),
@@ -41,7 +45,9 @@ urlpatterns = [
     path("register/", view.register),
     path("login_out/", view.login_out),
     path("kks", view.skk),
-    re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    path("Atest", Alist.as_view({'get': "list", "post": "partial_update"})),
+    re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0),
+            name='schema-json'),
     re_path(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     re_path(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]

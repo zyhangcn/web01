@@ -1,4 +1,6 @@
 import logging
+import time
+
 
 from django.db.models import F
 from rest_framework.decorators import action
@@ -11,15 +13,18 @@ from .models import Customer
 from .serializer import CustomerSerializer
 from .serializer import CustomerUpdateSerializer
 from drf.filters import (RangeFilter, SearchFilter)
+from utility.cache import rds
 
 logger = logging.getLogger("projectlog")
 
 
-class CustomerList(mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.UpdateModelMixin,
+class CustomerList(mixins.ListModelMixin,
+                   mixins.CreateModelMixin,
+                   mixins.RetrieveModelMixin,
+                   mixins.UpdateModelMixin,
                    viewsets.GenericViewSet):
     renderer_classes = [JSONRenderer]
     queryset = Customer.objects.all().filter(is_delete=False)
-    # permission_classes =
     serializer_class = CustomerSerializer
     filter_backends = (RangeFilter, SearchFilter, OrderingFilter)
     # 过滤器类
@@ -34,8 +39,11 @@ class CustomerList(mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.Up
         queryset = self.filter_queryset(self.get_queryset())
 
         page = self.paginate_queryset(queryset)
+        print(id(rds))
         if page is not None:
             serializer = self.get_serializer(page, many=True)
+            logger.info("查询成功")
+            rds.set("ksssk"+str(time.time()), "查询成功",ex=10)
             return self.get_paginated_response(serializer.data)
         serializer = self.get_serializer(queryset, many=True)
         logger.info("查询成功")
@@ -45,9 +53,10 @@ class CustomerList(mixins.CreateModelMixin, mixins.RetrieveModelMixin, mixins.Up
         serializer.save()
         logger.info("用户创建成功")
 
-    @action(methods=['GET'],detail=False,url_path="simple")
-    def simple_list(self,request,pk=None):
-        return Response({"kkk":"asddas"})
+    @action(methods=['GET'], detail=False, url_path="simple")
+    def simple_list(self, request, pk=None):
+        return Response({"kkk": "asddas"})
+
 
 class CustomerDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Customer.objects.all().filter(is_delete=False)

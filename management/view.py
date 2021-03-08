@@ -4,6 +4,7 @@ import collections
 
 from django.http import JsonResponse
 from django.shortcuts import redirect
+from django.views.decorators.csrf import csrf_protect
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -35,7 +36,7 @@ def register(request):
     return Response({"message": '注册成功'}, status=status.HTTP_201_CREATED)
 
 
-# @api_view(['POST', ])
+@api_view(['POST', ])
 def login(request):
     username = request.data.get('username')
     password = request.data.get('password')
@@ -45,10 +46,10 @@ def login(request):
         return Response({"msg": "用户名或密码不对!"}, status=status.HTTP_200_OK)
     # old_token = Token.objects.filter(user_id=user.id)
     # old_token.delete()
-    # token = get_token_code(username)
-    # Token.objects.update_or_create(token=token, user=user)
+    token = get_token_code(username)
+    Token.objects.update_or_create(token=token, user=user)
     request.session['user_id'] = user.id
-    # return Response(headers={"token": token}, status=status.HTTP_200_OK)
+    return Response(headers={"token": token}, status=status.HTTP_200_OK)
 
 
 @api_view()

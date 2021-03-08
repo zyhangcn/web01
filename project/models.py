@@ -13,3 +13,6 @@ class Project(models.Model):
     is_delete = models.BooleanField(default=False)
     # 项目的拥有者
     user = models.IntegerField(default=None)
+
+    class Meta:
+        ordering = ['id']

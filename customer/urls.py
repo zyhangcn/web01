@@ -7,7 +7,6 @@ from . import views
 router = SimpleRouter(trailing_slash=False)
 
 router.register("", views.CustomerList)
-print(router.urls)
 urlpatterns = [path("userlist/", include(router.urls))]
 # urlpatterns = [
 #     re_path("userlist/(?P<pk>[0-9]+)", views.CustomerList.as_view()),

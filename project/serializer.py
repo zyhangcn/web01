@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from rest_framework.validators import UniqueForDateValidator
 
 from .models import Project
 from customer.models import Customer
@@ -9,8 +8,6 @@ class ProjectListSerializer(serializers.ModelSerializer):
     introduce = serializers.CharField(write_only=True)
 
     def validate(self, attr):
-        request = self.context["request"]
-
         if attr.get("end_time") < attr.get("start_time"):
             raise serializers.ValidationError("开始时间应该小于结束时间")
         else:
@@ -18,6 +15,7 @@ class ProjectListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
+        # todo： fields  是用来控制序列化返回的字段的吗
         fields = ("project_name",
                   "start_time",
                   "end_time",

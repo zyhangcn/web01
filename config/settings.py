@@ -42,17 +42,18 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'project',
     'drf_yasg',
+    'te'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'middleware.middleware.LoginAuthToken'
+    # 'middleware.middleware.LoginAuthToken'
 ]
 
 ROOT_URLCONF = 'management.urls'
@@ -89,6 +90,11 @@ DATABASES = {
     }
 }
 
+REDIS = {
+    'host': 'localhost',
+    'port': 6379,
+    'db': 2,
+}
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -125,8 +131,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'common.utils.MyPagination',
     'PAGE_SIZE': 10,
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',  # token认证
     ),
     "EXCEPTION_HANDLER": "drf.exception.exception_handler",
