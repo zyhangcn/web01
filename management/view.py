@@ -7,11 +7,11 @@ from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_protect
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, schema
 from django.views import View
+from rest_framework.schemas import AutoSchema
 
-
-
+from utility.cache import rds
 from customer.models import Token
 from customer.models import User
 from customer.models import Customer
@@ -44,27 +44,19 @@ def login(request):
     user = User.objects.filter(username=username, password=hash_password, is_delete=False).first()
     if not user:
         return Response({"msg": "用户名或密码不对!"}, status=status.HTTP_200_OK)
-    # old_token = Token.objects.filter(user_id=user.id)
-    # old_token.delete()
     token = get_token_code(username)
-    Token.objects.update_or_create(token=token, user=user)
-    request.session['user_id'] = user.id
+    rds.set(token, user.id, ex=10000)
+    Token.objects.create(token=token, user=user.id)
     return Response(headers={"token": token}, status=status.HTTP_200_OK)
 
 
 @api_view()
-def login_out(requset):
-    user_id = requset.session.get('user_id')
-    if user_id is None:
-        return Response(status=status.HTTP_400_BAD_REQUEST)
-    token = Token.objects.filter(user_id=user_id)
-    token.delete()
-    del requset.session['user_id']
-    return JsonResponse({"message": "登出成功"})
+def login_out(request):
+    token = request.headers.get('token')
+    rds.delete(token)
+    return Response()
 
 
-
-def skk(request,year=3333):
-
+def skk(request, year=3333):
     return redirect(Customer.objects.get(pk=1))
     # return JsonResponse({"dasd":"asdas"})

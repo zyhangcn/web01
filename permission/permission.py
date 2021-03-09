@@ -1,7 +1,10 @@
 import logging
 
 from rest_framework.permissions import BasePermission
+
 import const
+from utility.cache import rds
+from customer.models import User
 
 logger = logging.getLogger("projectlog")
 
@@ -11,11 +14,11 @@ class MyPermission(BasePermission):
 
     def has_permission(self, request, view):
         if request.method in ["POST", 'PUT', 'DELETE']:
-            #     if request.user.identify == const.ADMIN or request.user.identify == const.MEMBER:
-            #         return True
-            #     else:
-            #         return False
-            # else:
+            if request.user.identify == const.ADMIN or request.user.identify == const.MEMBER:
+                return True
+            else:
+                return False
+        else:
             return True
 
     def has_object_permission(self, request, view, obj):

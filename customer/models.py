@@ -32,9 +32,8 @@ class Token(models.Model):
     '''
     token = models.CharField(max_length=200,
                              primary_key=True)
-    created_time = models.DateField(auto_now_add=True)
-    user = models.OneToOneField(to="customer.User",
-                                on_delete=models.DO_NOTHING)
+    created_time = models.DateTimeField(auto_now_add=True)
+    user = models.IntegerField()
 
 
 class User(models.Model):

@@ -36,6 +36,7 @@ schema_view = get_schema_view(
 )
 
 from rest_framework.schemas import get_schema_view
+from rest_framework.documentation import include_docs_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -45,6 +46,7 @@ urlpatterns = [
     path("register/", view.register),
     path("login_out/", view.login_out),
     path("kks", view.skk),
+    path("doc/", include_docs_urls(title="文档")),
     path("Atest", Alist.as_view({'get': "list", "post": "partial_update"})),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0),
             name='schema-json'),

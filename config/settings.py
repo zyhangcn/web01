@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'customer',
+    'customer.apps.UsersAppConfig',
     'rest_framework',
     'rest_framework.authtoken',
     'project',
@@ -49,11 +49,11 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'middleware.middleware.LoginAuthToken'
+    'middleware.middleware.LoginAuthToken'
 ]
 
 ROOT_URLCONF = 'management.urls'
@@ -132,9 +132,10 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'DEFAULT_AUTHENTICATION_CLASSES': (
         # 'rest_framework.authentication.BasicAuthentication',
-        # 'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',  # token认证
     ),
+    "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.AutoSchema",
     "EXCEPTION_HANDLER": "drf.exception.exception_handler",
 }
 
