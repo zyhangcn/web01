@@ -12,3 +12,7 @@ urlpatterns = [path("userlist/", include(router.urls))]
 #     re_path("userlist/(?P<pk>[0-9]+)", views.CustomerList.as_view()),
 #     re_path("userlist/(?P<pk>[0-9]+)", views.CustomerDetail.as_view(), name="track-detail")
 # ]
+
+# asdas
+# das
+# def
