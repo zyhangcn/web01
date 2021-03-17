@@ -19,7 +19,7 @@ class PartialUpdateModelMixin:
         serializer.save()
 
 
-class Alist(PartialUpdateModelMixin,ModelViewSet):
+class Alist(PartialUpdateModelMixin, ModelViewSet):
     queryset = A.objects.all()
     serializers = {
         'default': ASerializer,
@@ -27,5 +27,5 @@ class Alist(PartialUpdateModelMixin,ModelViewSet):
     }
 
     def get_serializer_class(self):
-        print(self.action)
+        # print(self.action)
         return self.serializers.get(self.action, self.serializers["default"])

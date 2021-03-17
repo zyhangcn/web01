@@ -1,6 +1,7 @@
+import json
 import logging
 import time
-
+from xml.etree import ElementTree
 
 from django.db.models import F
 from rest_framework.decorators import action
@@ -37,13 +38,11 @@ class CustomerList(mixins.ListModelMixin,
 
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
-
         page = self.paginate_queryset(queryset)
-        print(id(rds))
         if page is not None:
             serializer = self.get_serializer(page, many=True)
             logger.info("查询成功")
-            rds.set("ksssk"+str(time.time()), "查询成功",ex=10)
+            rds.set("ksssk" + str(time.time()), "查询成功", ex=10)
             return self.get_paginated_response(serializer.data)
         serializer = self.get_serializer(queryset, many=True)
         logger.info("查询成功")

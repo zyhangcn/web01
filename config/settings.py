@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'project',
     'drf_yasg',
-    'te'
+    'te', 'cas'
 ]
 
 MIDDLEWARE = [
@@ -52,8 +52,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'middleware.middleware.LoginAuthToken'
+    # 'middleware.middleware.LoginAuthToken',
+    'cas.middleware.CASMiddleware'
 ]
 
 ROOT_URLCONF = 'management.urls'
@@ -134,9 +134,11 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',  # token认证
+        "drf.authentication.OAuthAuthentication"
     ),
     "DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.AutoSchema",
     "EXCEPTION_HANDLER": "drf.exception.exception_handler",
+
 }
 
 LOGGING_DIR = 'logs'  # 日志存放路径

@@ -22,8 +22,9 @@ class LoginAuthToken(MiddlewareMixin):
         White_list = ['/login/',
                       '/register/']
         request.start_time = time.time()
-        print(dir(request))
-        token = request.headers.get('token')
+        token = request.headers.get('token',"")
+        print(token)
+        print(type(token))
         rds_user_id = rds.get(token)
         if request.get_full_path() in White_list:
             if rds_user_id is not None:
@@ -35,12 +36,14 @@ class LoginAuthToken(MiddlewareMixin):
 
             if rds_user_id is None:
                 logger.info("非法请求")
-                obj_token = Token.objects.get(pk=token)
-                now_time = datetime.datetime.now()
-                delat = (now_time - obj_token.created_time).seconds
-                if obj_token.count() != 0 and delat < 10:
-                    pass
-                else:
+                try:
+                    obj_token = Token.objects.get(pk=token)
+                    now_time = datetime.datetime.now()
+                    delat = (now_time - obj_token.created_time).seconds
+                    print(delat)
+                    if delat > 60 * 30:
+                        return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
+                except Exception:
                     return HttpResponse(status=status.HTTP_400_BAD_REQUEST)
 
     def process_response(self, request, response):
@@ -66,7 +69,6 @@ class LoginAuthToken(MiddlewareMixin):
         是否是路由中的，存在则打印日志，不存在就忽略
         """
         urlconf = getattr(request, "urlconf", None)
-
         try:
             resolve(request.path, urlconf=urlconf)
         except Resolver404:

@@ -1,7 +1,9 @@
 from collections import OrderedDict
+from quopri import quote
 
 from rest_framework.response import Response
 from rest_framework.pagination import PageNumberPagination
+from storages.backends.s3boto3 import S3Boto3Storage
 
 
 class MyPagination(PageNumberPagination):
@@ -15,6 +17,19 @@ class MyPagination(PageNumberPagination):
             }),
             ('records', data)
         ]))
+
+
+def generate_download_url(s3_key: str, filename: str) -> str:
+    """生成s3下载链接"""
+    parameters = {
+        "ResponseContentDisposition": f"attachment; filename={quote(filename)}",
+        "ResponseContentType": "application/octet-stream",
+    }
+    url = S3Boto3Storage().url(name=s3_key, parameters=parameters)
+    return url
+
+
+import ipdb
 
 
 def my_get_paginated_response(self, page):

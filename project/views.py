@@ -199,5 +199,5 @@ class Project_listsa(
     queryset = Project.objects.all()
 
     def get_serializer_class(self):
-        print(self.action)
+        # print(self.action)
         return ProjectListSerializer
