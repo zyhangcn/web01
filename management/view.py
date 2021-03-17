@@ -176,6 +176,8 @@ def django_out(request):
     return Response("asd")
 
 
+# asdasd
+
 @api_view(['GET'])
 def kks(request):
     return Response("klkalskdlklasd")
