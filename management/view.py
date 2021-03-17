@@ -174,3 +174,8 @@ def django_out(request):
     auth.logout(request)
     redirect_to = get_redirect_url(request)
     return Response("asd")
+
+
+@api_view(['GET'])
+def kks(request):
+    return Response("klkalskdlklasd")
